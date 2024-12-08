@@ -2,6 +2,8 @@ import Image from 'next/image';
 import styles from './page.module.css';
 
 import { css, styled } from '@juxio/react-styled';
+import { TerminalWindow } from './components/terminal';
+import { ImportedButton as ImportedJuxButton } from '@/jux/components/ImportedButton';
 
 const titleStyles = css({
   color: '#058FF2',
@@ -15,7 +17,6 @@ const List = styled('ul', {
   root: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '10px',
     listStyle: 'inside',
     '& li': {
       color: '#616161',
@@ -71,6 +72,19 @@ export default function Home() {
           </li>
           <li>Full interpolation support when generating styles</li>
         </List>
+        <p>Not registered with Jux yet?</p>
+        <a
+          className={css({
+            display: 'inline-block',
+            width: 'fit-content',
+            fontFamily: 'sans-serif',
+          })}
+          href="https://app.jux.io/"
+        >
+          <ImportedJuxButton>Sign up</ImportedJuxButton>
+        </a>
+        <TerminalWindow />
+        <TerminalWindow command="npx jux pull components" />
       </main>
     </div>
   );
